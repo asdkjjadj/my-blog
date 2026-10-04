@@ -1,17 +1,772 @@
 ---
+import "../styles/style.css";
 
+import xpBackground from "../image/xp.jpg";
+
+import myComputer from "../image/MyComputer.png";
+import myDocuments from "../image/MyDocuments.png";
+import myNetworkPlaces from "../image/MyNetworkPlaces.png";
+import notepad from "../image/Notepad.png";
+import recycleBin from "../image/RecycleBin(empty).png";
+
+/*
+ * ==================================================
+ * Taskbar 图标接口
+ * ==================================================
+ *
+ * 以后只需要把这里的图片换掉即可。
+ *
+ * 例如：
+ *
+ * import internetExplorer from "../image/InternetExplorer.png";
+ *
+ * ==================================================
+ */
+
+import windowsLogo from "../image/MyComputer.png";
+
+import quickInternet from "../image/MyNetworkPlaces.png";
+import quickFolder from "../image/MyDocuments.png";
+import quickSearch from "../image/Notepad.png";
+
+import traySound from "../image/Notepad.png";
+import trayNetwork from "../image/MyNetworkPlaces.png";
+import trayKeyboard from "../image/Notepad.png";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Windows XP Desktop</title>
+
+</head>
+
+
+<body>
+
+
+<main
+    class="desktop"
+    style={`background-image: url(${xpBackground.src})`}
+>
+
+
+    <!-- ==================================================
+         桌面图标
+         ================================================== -->
+
+    <div class="desktop-icons">
+
+
+        <!-- 我的电脑 -->
+
+        <button
+            class="desktop-icon"
+            data-window="my-computer-window"
+        >
+
+            <span class="icon">
+
+                <img
+                    src={myComputer.src}
+                    alt="我的电脑"
+                    draggable="false"
+                >
+
+            </span>
+
+            <span class="icon-name">
+                我的电脑
+            </span>
+
+        </button>
+
+
+        <!-- 我的文档 -->
+
+        <button
+            class="desktop-icon"
+            data-window="my-documents-window"
+        >
+
+            <span class="icon">
+
+                <img
+                    src={myDocuments.src}
+                    alt="我的文档"
+                    draggable="false"
+                >
+
+            </span>
+
+            <span class="icon-name">
+                我的文档
+            </span>
+
+        </button>
+
+
+        <!-- 网上邻居 -->
+
+        <button
+            class="desktop-icon"
+            data-window="network-window"
+        >
+
+            <span class="icon">
+
+                <img
+                    src={myNetworkPlaces.src}
+                    alt="网上邻居"
+                    draggable="false"
+                >
+
+            </span>
+
+            <span class="icon-name">
+                网上邻居
+            </span>
+
+        </button>
+
+
+        <!-- 我的博客 -->
+
+        <button
+            class="desktop-icon"
+            data-window="blog-window"
+        >
+
+            <span class="icon">
+
+                <img
+                    src={notepad.src}
+                    alt="我的博客"
+                    draggable="false"
+                >
+
+            </span>
+
+            <span class="icon-name">
+                我的博客
+            </span>
+
+        </button>
+
+
+        <!-- 回收站 -->
+
+        <button
+            class="desktop-icon"
+            data-window="recycle-window"
+        >
+
+            <span class="icon">
+
+                <img
+                    src={recycleBin.src}
+                    alt="回收站"
+                    draggable="false"
+                >
+
+            </span>
+
+            <span class="icon-name">
+                回收站
+            </span>
+
+        </button>
+
+
+    </div>
+
+
+
+    <!-- ==================================================
+         我的电脑窗口
+         ================================================== -->
+
+    <section
+        class="window"
+        id="my-computer-window"
+        data-title="我的电脑"
+        data-icon={myComputer.src}
+    >
+
+        <div class="window-header">
+
+
+            <div class="window-title">
+
+                <span class="window-title-icon">
+
+                    <img
+                        src={myComputer.src}
+                        alt=""
+                        draggable="false"
+                    >
+
+                </span>
+
+                <span class="window-title-text">
+                    我的电脑
+                </span>
+
+            </div>
+
+
+            <div class="window-controls">
+
+                <button
+                    class="window-minimize"
+                    title="最小化"
+                >
+                    −
+                </button>
+
+                <button
+                    class="window-maximize"
+                    title="最大化"
+                >
+                    □
+                </button>
+
+                <button
+                    class="window-close"
+                    title="关闭"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="window-content">
+
+            <div class="content-toolbar">
+                地址
+            </div>
+
+            <div class="window-main-content">
+
+                <h2>我的电脑</h2>
+
+                <p>
+                    这里以后可以放你的项目、学习资料以及其他内容。
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         我的文档窗口
+         ================================================== -->
+
+    <section
+        class="window"
+        id="my-documents-window"
+        data-title="我的文档"
+        data-icon={myDocuments.src}
+    >
+
+        <div class="window-header">
+
+
+            <div class="window-title">
+
+                <span class="window-title-icon">
+
+                    <img
+                        src={myDocuments.src}
+                        alt=""
+                        draggable="false"
+                    >
+
+                </span>
+
+                <span class="window-title-text">
+                    我的文档
+                </span>
+
+            </div>
+
+
+            <div class="window-controls">
+
+                <button
+                    class="window-minimize"
+                    title="最小化"
+                >
+                    −
+                </button>
+
+                <button
+                    class="window-maximize"
+                    title="最大化"
+                >
+                    □
+                </button>
+
+                <button
+                    class="window-close"
+                    title="关闭"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="window-content">
+
+            <h2>我的文档</h2>
+
+            <p>
+                学习笔记、代码以及项目资料。
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         网上邻居窗口
+         ================================================== -->
+
+    <section
+        class="window"
+        id="network-window"
+        data-title="网上邻居"
+        data-icon={myNetworkPlaces.src}
+    >
+
+        <div class="window-header">
+
+
+            <div class="window-title">
+
+                <span class="window-title-icon">
+
+                    <img
+                        src={myNetworkPlaces.src}
+                        alt=""
+                        draggable="false"
+                    >
+
+                </span>
+
+                <span class="window-title-text">
+                    网上邻居
+                </span>
+
+            </div>
+
+
+            <div class="window-controls">
+
+                <button
+                    class="window-minimize"
+                    title="最小化"
+                >
+                    −
+                </button>
+
+                <button
+                    class="window-maximize"
+                    title="最大化"
+                >
+                    □
+                </button>
+
+                <button
+                    class="window-close"
+                    title="关闭"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="window-content">
+
+            <h2>网上邻居</h2>
+
+            <p>
+                这里以后可以放网络相关内容。
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         我的博客窗口
+         ================================================== -->
+
+    <section
+        class="window"
+        id="blog-window"
+        data-title="我的博客"
+        data-icon={notepad.src}
+    >
+
+        <div class="window-header">
+
+
+            <div class="window-title">
+
+                <span class="window-title-icon">
+
+                    <img
+                        src={notepad.src}
+                        alt=""
+                        draggable="false"
+                    >
+
+                </span>
+
+                <span class="window-title-text">
+                    我的博客
+                </span>
+
+            </div>
+
+
+            <div class="window-controls">
+
+                <button
+                    class="window-minimize"
+                    title="最小化"
+                >
+                    −
+                </button>
+
+                <button
+                    class="window-maximize"
+                    title="最大化"
+                >
+                    □
+                </button>
+
+                <button
+                    class="window-close"
+                    title="关闭"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="window-content">
+
+            <h2>我的博客</h2>
+
+            <p>
+                欢迎来到我的个人博客。
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         回收站窗口
+         ================================================== -->
+
+    <section
+        class="window"
+        id="recycle-window"
+        data-title="回收站"
+        data-icon={recycleBin.src}
+    >
+
+        <div class="window-header">
+
+
+            <div class="window-title">
+
+                <span class="window-title-icon">
+
+                    <img
+                        src={recycleBin.src}
+                        alt=""
+                        draggable="false"
+                    >
+
+                </span>
+
+                <span class="window-title-text">
+                    回收站
+                </span>
+
+            </div>
+
+
+            <div class="window-controls">
+
+                <button
+                    class="window-minimize"
+                    title="最小化"
+                >
+                    −
+                </button>
+
+                <button
+                    class="window-maximize"
+                    title="最大化"
+                >
+                    □
+                </button>
+
+                <button
+                    class="window-close"
+                    title="关闭"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="window-content">
+
+            <h2>回收站</h2>
+
+            <p>
+                回收站目前为空。
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         Windows XP Taskbar
+         ================================================== -->
+
+    <footer class="taskbar">
+
+
+        <!-- ==================================================
+             Start
+             ================================================== -->
+
+        <button
+            class="start-button"
+            title="开始"
+        >
+
+            <span class="windows-logo">
+
+                <img
+                    src={windowsLogo.src}
+                    alt=""
+                    draggable="false"
+                >
+
+            </span>
+
+
+            <span class="start-text">
+                开始
+            </span>
+
+        </button>
+
+
+
+        <!-- ==================================================
+             Quick Launch
+             ================================================== -->
+
+        <div class="quick-launch">
+
+
+            <button
+                class="quick-launch-button"
+                title="Internet Explorer"
+            >
+
+                <span class="quick-icon">
+
+                    <img
+                        src={quickInternet.src}
+                        alt=""
+                        draggable="false"
+                    >
+
+                </span>
+
+            </button>
+
+
+            <button
+                class="quick-launch-button"
+                title="文件夹"
+            >
+
+                <span class="quick-icon">
+
+                    <img
+                        src={quickFolder.src}
+                        alt=""
+                        draggable="false"
+                    >
+
+                </span>
+
+            </button>
+
+
+            <button
+                class="quick-launch-button"
+                title="搜索"
+            >
+
+                <span class="quick-icon">
+
+                    <img
+                        src={quickSearch.src}
+                        alt=""
+                        draggable="false"
+                    >
+
+                </span>
+
+            </button>
+
+
+        </div>
+
+
+
+        <!-- ==================================================
+             打开的窗口
+             JS 会动态生成
+             ================================================== -->
+
+        <div class="taskbar-windows"></div>
+
+
+
+        <!-- ==================================================
+             System Tray
+             ================================================== -->
+
+        <div class="system-tray">
+
+
+            <button
+                class="tray-button"
+                title="音量"
+            >
+
+                <span class="tray-icon">
+
+                    <img
+                        src={traySound.src}
+                        alt=""
+                        draggable="false"
+                    >
+
+                </span>
+
+            </button>
+
+
+            <button
+                class="tray-button"
+                title="网络"
+            >
+
+                <span class="tray-icon">
+
+                    <img
+                        src={trayNetwork.src}
+                        alt=""
+                        draggable="false"
+                    >
+
+                </span>
+
+            </button>
+
+
+            <button
+                class="tray-button"
+                title="键盘"
+            >
+
+                <span class="tray-icon">
+
+                    <img
+                        src={trayKeyboard.src}
+                        alt=""
+                        draggable="false"
+                    >
+
+                </span>
+
+            </button>
+
+
+            <span class="clock">
+                00:00
+            </span>
+
+
+        </div>
+
+
+    </footer>
+
+
+</main>
+
+
+<script src="/script.js" is:inline></script>
+
+
+</body>
+
 </html>
+
